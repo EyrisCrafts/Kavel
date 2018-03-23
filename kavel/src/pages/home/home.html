@@ -3,16 +3,81 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Cafe Menu</ion-title>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+  <button (click)="receiveData()" ion-button>receiveData</button>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-item>
+    <ion-label> Day</ion-label>
+    <ion-select interface="action-sheet" [(ngModel)]="day">
+      <ion-option value="Monday">Monday</ion-option>
+      <ion-option value="Tuesday">Tuesday</ion-option>
+      <ion-option value="Wednesday">Wednesday</ion-option>
+      <ion-option value="Thursday">Thursday</ion-option>
+      <ion-option value="Friday">Friday</ion-option>
+      <ion-option value="Saturday">Saturday</ion-option>
+      <ion-option value="Sunday">Sunday</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label> Time</ion-label>
+    <ion-select interface="action-sheet" [(ngModel)]="time">
+      <ion-option value="Breakfast">Breakfast</ion-option>
+      <ion-option value="Lunch">Lunch</ion-option>
+      <ion-option value="Dinner">Dinner</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-input id="DishItem" [(ngModel)]="dish" placeholder="Dish"></ion-input>
+  </ion-item>
+  <button (click)="btnClicked()" ion-button>Add</button>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+<!--  <ion-list>
+    <ion-item *ngFor="let item of items | async">
+      {{item.Day}},{{item.Time}},{{item.Dish}}
+      <button (click)="delete(item)" ion-button>delete</button>
+    </ion-item>
+  </ion-list>
+  <button (click)="delete(item)" ion-button>Wednesday</button>
+  <button (click)="delete(item)" ion-button>Thursday</button>
+  <button (click)="delete(item)" ion-button>Friday</button>
+  <button (click)="delete(item)" ion-button>Saturday</button>
+-->
+<button (click)="giff('Monday')" ion-button>Monday</button>
+<button (click)="giff('Tuesday')" ion-button>Tuesday</button>
+<table>
+  <tr>
+    <th>Breakfast</th>
+    <th>Lunch</th>
+    <th>Dinner</th>
+    <th>Action</th>
+  </tr>
+      <tr *ngFor="let item of items | async">
+        <td *ngIf="item.Time=='Breakfast'">{{item.Dish}}</td>
+        <td *ngIf="item.Time=='Lunch'">{{item.Dish}}</td>
+        <td><button (click)="delete(item)" ion-button>delete</button></td>
+      </tr>
+  </table>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="text-align:center"><strong>Breakfast</strong></ion-col>
+      <ion-col style="text-align:center"><strong>Lunch</strong></ion-col>
+      <ion-col style="text-align:center"><strong>Dinner</strong></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Hello world</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>my lunch</ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>wndadsd</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
