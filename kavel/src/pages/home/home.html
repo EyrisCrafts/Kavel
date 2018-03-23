@@ -68,6 +68,9 @@
       <ion-col style="text-align:center"><strong>Lunch</strong></ion-col>
       <ion-col style="text-align:center"><strong>Dinner</strong></ion-col>
     </ion-row>
+
+  <!-- I need to print all three of the times!-->
+
     <ion-row *ngFor="let item of BreakfastFood | async;">
       <ion-col>{{item.Dish}}</ion-col>
     </ion-row>
