@@ -9,6 +9,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  isTest:boolean = true;
+  selected:string = "Monday";
   gDay: string = "Monday";
   day: string = "Monday";
   time: string = "Breakfast";
@@ -36,6 +38,7 @@ export class HomePage {
     this.fdb.list("cuisines/"+item.Day+"/"+item.Time).remove(item.key);
   }
   giff(gDay){
+    this.selected=gDay;
     this.BreakfastFood = this.fdb.list("cuisines/"+gDay+"/Breakfast").snapshotChanges().map(changes=>{
       return changes.map(c=>({ key: c.payload.key, ...c.payload.val()
       }));

@@ -44,13 +44,13 @@
   </ion-grid>
   <button (click)="btnClicked()" ion-button>Add</button>
 
-<button (click)="giff('Monday')" ion-button>Monday</button>
-<button (click)="giff('Tuesday')" ion-button>Tuesday</button>
-<button (click)="giff('Wednesday')" ion-button>Wednesday</button>
-<button (click)="giff('Thursday')" ion-button>Thursday</button>
-<button (click)="giff('Friday')" ion-button>Friday</button>
-<button (click)="giff('Saturday')" ion-button>Saturday</button>
-<button (click)="giff('Sunday')" ion-button>Sunday</button>
+<button (click)="giff('Monday')" ion-button [color]="selected == 'Monday' ? 'secondary' : cool">Monday</button>
+<button (click)="giff('Tuesday')" ion-button [color]="selected == 'Tuesday' ? 'secondary' : cool">Tuesday</button>
+<button (click)="giff('Wednesday')" ion-button [color]="selected == 'Wednesday' ? 'secondary' : cool">Wednesday</button>
+<button (click)="giff('Thursday')" ion-button [color]="selected == 'Thursday' ? 'secondary' : cool">Thursday</button>
+<button (click)="giff('Friday')" ion-button [color]="selected == 'Friday' ? 'secondary' : cool">Friday</button>
+<button (click)="giff('Saturday')" ion-button [color]="selected == 'Saturday' ? 'secondary' : cool">Saturday</button>
+<button (click)="giff('Sunday')" ion-button [color]="selected == 'Sunday' ? 'secondary' : cool">Sunday</button>
 
 <ion-grid>
   <ion-row>
