@@ -68,16 +68,8 @@
       <ion-col style="text-align:center"><strong>Lunch</strong></ion-col>
       <ion-col style="text-align:center"><strong>Dinner</strong></ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col>Hello world</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col></ion-col>
-      <ion-col>my lunch</ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>wndadsd</ion-col>
+    <ion-row *ngFor="let item of BreakfastFood | async;">
+      <ion-col>{{item.Dish}}</ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
