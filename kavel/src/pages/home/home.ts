@@ -12,22 +12,19 @@ export class HomePage {
   gDay: string = "Monday";
   day: string = "Monday";
   time: string = "Breakfast";
-  dish:string ="";
+  dish: string ="";
+  price: string = "";
   items:Observable<any[]>;
   BreakfastFood:Observable<any[]>;
   LunchFood:Observable<any[]>;
   DinnerFood:Observable<any[]>;
   constructor(public navCtrl: NavController, public fdb : AngularFireDatabase) {
-//      this.items = this.fdb.list("cuisines").valueChanges();
-//      console.log(this.items);
-//    this.items = this.fdb.list("cuisines").snapshotChanges().map(changes=>{
-//      return changes.map(c=>({ key: c.payload.key, ...c.payload.val()
-//      }));
-//    });
+    this.giff(this.gDay);
   }
   btnClicked(){
-    this.fdb.list("cuisines/"+this.day+"/"+this.time).push({Time:this.time, Dish:this.dish, Day:this.day});
+    this.fdb.list("cuisines/"+this.day+"/"+this.time).push({Time:this.time, Dish:this.dish, Day:this.day,Price:this.price});
     this.dish="";
+    this.price="";
   }
   receiveData(){
     this.items = this.fdb.list("cuisines").snapshotChanges().map(changes=>{

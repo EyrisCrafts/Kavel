@@ -1,15 +1,13 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="cool">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Cafe Menu</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <button (click)="receiveData()" ion-button>receiveData</button>
-
   <ion-item>
     <ion-label> Day</ion-label>
     <ion-select interface="action-sheet" [(ngModel)]="day">
@@ -30,49 +28,124 @@
       <ion-option value="Dinner">Dinner</ion-option>
     </ion-select>
   </ion-item>
-  <ion-item>
-    <ion-input id="DishItem" [(ngModel)]="dish" placeholder="Dish"></ion-input>
-  </ion-item>
-  <button (click)="btnClicked()" ion-button>Add</button>
-
-
-<!--  <ion-list>
-    <ion-item *ngFor="let item of items | async">
-      {{item.Day}},{{item.Time}},{{item.Dish}}
-      <button (click)="delete(item)" ion-button>delete</button>
-    </ion-item>
-  </ion-list>
-  <button (click)="delete(item)" ion-button>Wednesday</button>
-  <button (click)="delete(item)" ion-button>Thursday</button>
-  <button (click)="delete(item)" ion-button>Friday</button>
-  <button (click)="delete(item)" ion-button>Saturday</button>
--->
-<button (click)="giff('Monday')" ion-button>Monday</button>
-<button (click)="giff('Tuesday')" ion-button>Tuesday</button>
-<table>
-  <tr>
-    <th>Breakfast</th>
-    <th>Lunch</th>
-    <th>Dinner</th>
-    <th>Action</th>
-  </tr>
-      <tr *ngFor="let item of items | async">
-        <td *ngIf="item.Time=='Breakfast'">{{item.Dish}}</td>
-        <td *ngIf="item.Time=='Lunch'">{{item.Dish}}</td>
-        <td><button (click)="delete(item)" ion-button>delete</button></td>
-      </tr>
-  </table>
   <ion-grid>
     <ion-row>
-      <ion-col style="text-align:center"><strong>Breakfast</strong></ion-col>
-      <ion-col style="text-align:center"><strong>Lunch</strong></ion-col>
-      <ion-col style="text-align:center"><strong>Dinner</strong></ion-col>
-    </ion-row>
-
-  <!-- I need to print all three of the times!-->
-
-    <ion-row *ngFor="let item of BreakfastFood | async;">
-      <ion-col>{{item.Dish}}</ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-input [(ngModel)]="dish" placeholder="Dish"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-input [(ngModel)]="price" placeholder="price" type="number"></ion-input>
+        </ion-item>
+      </ion-col>
     </ion-row>
   </ion-grid>
+  <button (click)="btnClicked()" ion-button>Add</button>
+
+<button (click)="giff('Monday')" ion-button>Monday</button>
+<button (click)="giff('Tuesday')" ion-button>Tuesday</button>
+<button (click)="giff('Wednesday')" ion-button>Wednesday</button>
+<button (click)="giff('Thursday')" ion-button>Thursday</button>
+<button (click)="giff('Friday')" ion-button>Friday</button>
+<button (click)="giff('Saturday')" ion-button>Saturday</button>
+<button (click)="giff('Sunday')" ion-button>Sunday</button>
+
+<ion-grid>
+  <ion-row>
+    <ion-col style="text-align:center">
+      <strong>Breakfast</strong>
+    </ion-col>
+    <ion-col style="text-align:center">
+      <strong>Lunch</strong>
+    </ion-col>
+    <ion-col style="text-align:center">
+      <strong>Dinner</strong>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <strong>Name</strong>
+        </ion-col>
+        <ion-col>
+          <strong>Price</strong>
+        </ion-col>
+        <ion-col>
+          <strong>Action</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row  *ngFor="let item of BreakfastFood | async;">
+        <ion-col>
+            <p>{{item.Dish}}</p>
+        </ion-col>
+        <ion-col>
+            <p>{{item.Price}}<p>
+        </ion-col>
+        <ion-col>
+            <p><button (click)="delete(item)" ion-button>delete</button></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-col>
+    <ion-col>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <strong>Name</strong>
+        </ion-col>
+        <ion-col>
+          <strong>Price</strong>
+        </ion-col>
+        <ion-col>
+          <strong>Action</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row  *ngFor="let item of LunchFood | async;">
+        <ion-col>
+            <p>{{item.Dish}}</p>
+        </ion-col>
+        <ion-col>
+            <p>{{item.Price}}<p>
+        </ion-col>
+        <ion-col>
+            <p><button (click)="delete(item)" ion-button>delete</button></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-col>
+    <ion-col>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <strong>Name</strong>
+        </ion-col>
+        <ion-col>
+          <strong>Price</strong>
+        </ion-col>
+        <ion-col>
+          <strong>Action</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row  *ngFor="let item of DinnerFood | async;">
+        <ion-col>
+            <p>{{item.Dish}}</p>
+        </ion-col>
+        <ion-col>
+            <p>{{item.Price}}<p>
+        </ion-col>
+        <ion-col>
+            <p><button (click)="delete(item)" ion-button>delete</button></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
 </ion-content>
