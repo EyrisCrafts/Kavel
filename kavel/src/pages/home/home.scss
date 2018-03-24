@@ -7,10 +7,9 @@ ion-grid {
     width: 100%;
 }
 
-ion-col {
+.my_tables ion-col {
     border: 1px solid #dddddd;
-    text-align: left;
+    text-align: center;
     padding: 8px;
-}
-ion-row:nth-child(even) {
+
 }

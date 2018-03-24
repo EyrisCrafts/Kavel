@@ -42,110 +42,75 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <button (click)="btnClicked()" ion-button>Add</button>
+  <button (click)="btnClicked()" ion-button full>Add</button>
+  <br>
 
-<button (click)="giff('Monday')" ion-button [color]="selected == 'Monday' ? 'secondary' : cool">Monday</button>
-<button (click)="giff('Tuesday')" ion-button [color]="selected == 'Tuesday' ? 'secondary' : cool">Tuesday</button>
-<button (click)="giff('Wednesday')" ion-button [color]="selected == 'Wednesday' ? 'secondary' : cool">Wednesday</button>
-<button (click)="giff('Thursday')" ion-button [color]="selected == 'Thursday' ? 'secondary' : cool">Thursday</button>
-<button (click)="giff('Friday')" ion-button [color]="selected == 'Friday' ? 'secondary' : cool">Friday</button>
-<button (click)="giff('Saturday')" ion-button [color]="selected == 'Saturday' ? 'secondary' : cool">Saturday</button>
-<button (click)="giff('Sunday')" ion-button [color]="selected == 'Sunday' ? 'secondary' : cool">Sunday</button>
+  <button (click)="giff('Monday')" ion-button [color]="selected == 'Monday' ? 'secondary' : 'cool'">Monday</button>
+  <button (click)="giff('Tuesday')" ion-button [color]="selected == 'Tuesday' ? 'secondary' : 'cool'">Tuesday</button>
+  <button (click)="giff('Wednesday')" ion-button [color]="selected == 'Wednesday' ? 'secondary' : 'cool'">Wednesday</button>
+  <button (click)="giff('Thursday')" ion-button [color]="selected == 'Thursday' ? 'secondary' : 'cool'">Thursday</button>
+  <button (click)="giff('Friday')" ion-button [color]="selected == 'Friday' ? 'secondary' : 'cool'">Friday</button>
+  <button (click)="giff('Saturday')" ion-button [color]="selected == 'Saturday' ? 'secondary' : 'cool'">Saturday</button>
+  <button (click)="giff('Sunday')" ion-button [color]="selected == 'Sunday' ? 'secondary' : 'cool'">Sunday</button>
 
-<ion-grid>
-  <ion-row>
-    <ion-col style="text-align:center">
-      <strong>Breakfast</strong>
-    </ion-col>
-    <ion-col style="text-align:center">
-      <strong>Lunch</strong>
-    </ion-col>
-    <ion-col style="text-align:center">
-      <strong>Dinner</strong>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
+  <div class="my_tables">
+
     <ion-grid>
       <ion-row>
-        <ion-col>
-          <strong>Name</strong>
-        </ion-col>
-        <ion-col>
-          <strong>Price</strong>
-        </ion-col>
-        <ion-col>
-          <strong>Action</strong>
-        </ion-col>
+        <ion-col style="text-align:center"><strong>Breakfast</strong></ion-col>
       </ion-row>
-      <ion-row  *ngFor="let item of BreakfastFood | async;">
-        <ion-col>
-            <p>{{item.Dish}}</p>
-        </ion-col>
-        <ion-col>
-            <p>{{item.Price}}<p>
-        </ion-col>
-        <ion-col>
-            <p><button (click)="delete(item)" ion-button>delete</button></p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    </ion-col>
-    <ion-col>
+      <ion-row>
+          <ion-grid>
+            <ion-row>
+              <ion-col><strong>Name</strong></ion-col>
+              <ion-col><strong>Price</strong></ion-col>
+              <ion-col><strong>Action</strong></ion-col>
+            </ion-row>
+            <ion-row *ngFor="let item of BreakfastFood | async;">
+              <ion-col>{{item.Dish}}</ion-col>
+              <ion-col>{{item.Price}}</ion-col>
+              <ion-col><button (click)="delete(item)" ion-button small>Delete</button></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-row>
+      </ion-grid>
     <ion-grid>
       <ion-row>
-        <ion-col>
-          <strong>Name</strong>
-        </ion-col>
-        <ion-col>
-          <strong>Price</strong>
-        </ion-col>
-        <ion-col>
-          <strong>Action</strong>
-        </ion-col>
+        <ion-col style="text-align:center"><strong>Lunch</strong></ion-col>
       </ion-row>
-      <ion-row  *ngFor="let item of LunchFood | async;">
-        <ion-col>
-            <p>{{item.Dish}}</p>
-        </ion-col>
-        <ion-col>
-            <p>{{item.Price}}<p>
-        </ion-col>
-        <ion-col>
-            <p><button (click)="delete(item)" ion-button>delete</button></p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    </ion-col>
-    <ion-col>
+      <ion-row>
+          <ion-grid>
+            <ion-row>
+              <ion-col><strong>Name</strong></ion-col>
+              <ion-col><strong>Price</strong></ion-col>
+              <ion-col><strong>Action</strong></ion-col>
+            </ion-row>
+            <ion-row *ngFor="let item of LunchFood | async;">
+              <ion-col>{{item.Dish}}</ion-col>
+              <ion-col>{{item.Price}}</ion-col>
+              <ion-col><button (click)="delete(item)" ion-button small>Delete</button></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-row>
+      </ion-grid>
     <ion-grid>
       <ion-row>
-        <ion-col>
-          <strong>Name</strong>
-        </ion-col>
-        <ion-col>
-          <strong>Price</strong>
-        </ion-col>
-        <ion-col>
-          <strong>Action</strong>
-        </ion-col>
+        <ion-col style="text-align:center"><strong>Dinner</strong></ion-col>
       </ion-row>
-      <ion-row  *ngFor="let item of DinnerFood | async;">
-        <ion-col>
-            <p>{{item.Dish}}</p>
-        </ion-col>
-        <ion-col>
-            <p>{{item.Price}}<p>
-        </ion-col>
-        <ion-col>
-            <p><button (click)="delete(item)" ion-button>delete</button></p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
-
-
+      <ion-row>
+          <ion-grid>
+            <ion-row>
+              <ion-col><strong>Name</strong></ion-col>
+              <ion-col><strong>Price</strong></ion-col>
+              <ion-col><strong>Action</strong></ion-col>
+            </ion-row>
+            <ion-row *ngFor="let item of DinnerFood | async;">
+              <ion-col>{{item.Dish}}</ion-col>
+              <ion-col>{{item.Price}}</ion-col>
+              <ion-col><button (click)="delete(item)" ion-button small>Delete</button></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-row>
+      </ion-grid>
+  </div>
 </ion-content>
